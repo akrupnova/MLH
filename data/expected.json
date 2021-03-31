@@ -18,5 +18,6 @@
   "trimmed0": "23",
   "spinUp1": "1",
   "spinUp2": "2",
-  "spinDown4": "4"
+  "spinDown4": "4",
+  "errorMessageName": "70 symbols max"
 }

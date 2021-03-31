@@ -14,6 +14,12 @@ function clearInput() {
         $(sel.age).keys(['Backspace']);
     }
 
+function clearName() {
+    let el = $(sel.name).getValue();
+    for (let i = 0; i < el.length; i++)
+        $(sel.name).keys(['Backspace']);
+}
+
 // function inputValues5 (name, gender, age, story, image){
 //     $(sel.name).setValue(name);
 //     $$(sel.radioButtons)[gender].click();
@@ -22,4 +28,4 @@ function clearInput() {
 //     $$(sel.storyList)[story].click();
 // }
 
-module.exports = {inputValues4, clearInput};  //{in4, in5}
+module.exports = {inputValues4, clearInput, clearName};  //{in4, in5}
