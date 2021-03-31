@@ -8,7 +8,7 @@ function inputValues4 (name, gender, age, story){
     $$(sel.storyList)[story].click();
 }
 
-// function inputValues4 (name, gender, age, story, image){
+// function inputValues5 (name, gender, age, story, image){
 //     $(sel.name).setValue(name);
 //     $$(sel.radioButtons)[gender].click();
 //     $(sel.age).setValue(age);

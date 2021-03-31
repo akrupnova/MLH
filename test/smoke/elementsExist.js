@@ -1,20 +1,19 @@
 import sel from '../../data/selectors';
-import exp from '../../data/expected.json'
+import exp from '../../data/expected.json';
+import data from '../../data/testData';
 
 describe('My Little Hero', function () {
 
-    describe('Getting to the page', function () {
+    beforeEach('Open App', function() {
+        browser.url(''); //open baseUrl
+    });
 
-        before('Open App', function() {
-            browser.url(''); //open baseUrl
-        });
+    describe('Getting to the page', function () {
 
         it('TC-001 Title is correct ', function () {
             let title = browser.getTitle();
-            browser.pause(2000);
             expect(title).toEqual(exp.title);
         });
-
     });
 
     describe('Elements exist', function () {
@@ -45,17 +44,17 @@ describe('My Little Hero', function () {
         });
 
         it('TC-007.a Gender radio button 1 is present', function () {
-            let buttonHe = $$(sel.radioButtons)[0].isDisplayed();
+            let buttonHe = $$(sel.radioButtons)[data.gender.he].isDisplayed();
             expect(buttonHe).toEqual(true);
         });
 
         it('TC-007.b Gender radio button 2 is present', function () {
-            let buttonShe = $$(sel.radioButtons)[1].isDisplayed();
+            let buttonShe = $$(sel.radioButtons)[data.gender.she].isDisplayed();
             expect(buttonShe).toEqual(true);
         });
 
         it('TC-007.c Gender radio button 3 is present', function () {
-            let buttonIt = $$(sel.radioButtons)[2].isDisplayed();
+            let buttonIt = $$(sel.radioButtons)[data.gender.it].isDisplayed();
             expect(buttonIt).toEqual(true);
         });
 
@@ -93,7 +92,5 @@ describe('My Little Hero', function () {
             let submit= $(sel.submit).isDisplayed();
             expect(submit).toEqual(true);
         });
-
     });
-
 });
