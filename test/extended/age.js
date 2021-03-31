@@ -1,5 +1,7 @@
 import sel from '../../data/selectors';
-import exp from '../../data/expected.json'
+import exp from '../../data/expected.json';
+import {age, name, gender, storyTypes} from '../../data/testData';
+import {clearInput} from '../../helpers/methods';
 
 describe('Age field testing', function () {
 
@@ -17,98 +19,127 @@ describe('Age field testing', function () {
     });
 
     it('TC-056 Age field accepts "1" ', function () {
-        $(sel.age).setValue('1');
-        let errorMessage = $('div[role="alert"]').isDisplayed();
+        $(sel.age).setValue(age.oneDigit);
+        let errorMessage = $(sel.errorMessage).isDisplayed();
         expect(errorMessage).toEqual(false);
     });
 
     it('TC-057 Age field accepts 12 digits ', function () {
-        $(sel.age).setValue('999999999999');
-        let errorMessage = $('div[role="alert"]').isDisplayed();
+        $(sel.age).setValue(age.digits12);
+        let errorMessage = $(sel.errorMessage).isDisplayed();
         expect(errorMessage).toEqual(false);
     });
 
     it('TC-058 Age field accepts "1234567890" ', function () {
-        $(sel.age).setValue('1234567890');
-        let errorMessage = $('div[role="alert"]').isDisplayed();
+        $(sel.age).setValue(age.default);
+        let errorMessage = $(sel.errorMessage).isDisplayed();
         expect(errorMessage).toEqual(false);
     });
 
     it('TC-059 Age field accepts space between digits ', function () {
-        $(sel.age).setValue('123 321');
-        let errorMessage = $('div[role="alert"]').isDisplayed();
+        $(sel.age).setValue(age.spaceIsTrimmed);
+        let errorMessage = $(sel.errorMessage).isDisplayed();
         expect(errorMessage).toEqual(false);
     });
 
     it('TC-060 Age field trimmed 0 before digits ', function () {
-        $(sel.age).setValue('023');
+        $(sel.age).setValue(age.zeroIsTrimmed);
         $(sel.name).click();
-        browser.pause(1000);
         let errorMessage = $(sel.age).getValue();
-        expect(errorMessage).toEqual('23');
+        expect(errorMessage).toEqual(exp.trimmed0);
     });
 
     it('TC-061 Age field accepts spin up ', function () {
         $(sel.spinUpAge).click();
-        let age = $(sel.age).getValue();
-        expect(age).toEqual('1');
+        let ages = $(sel.age).getValue();
+        expect(ages).toEqual(exp.spinUp1);
     });
 
     it('TC-062 Age field accepts spin up ', function () {
-        $(sel.age).setValue('5');
+        $(sel.age).setValue(age.oneDigit);
         $(sel.spinUpAge).click();
-        let age = $(sel.age).getValue();
-        expect(age).toEqual('6');
+        let ages = $(sel.age).getValue();
+        expect(ages).toEqual(exp.spinUp2);
+    });
+
+    it('TC-202a Message is appeared after entering ant then deleting input ', function () {
+        $(sel.age).setValue(age.spindown);
+        clearInput();
+        let message = $(sel.errorMessage).waitForDisplayed();
+        expect(message).toEqual(true);
+
+    });
+
+    it('TC-202b Message which is appeared after entering ant then deleting input, has text "Required" ', function () {
+        $(sel.age).setValue(age.spindown);
+        clearInput();
+        browser.pause(1000)
+        let text = $(sel.errorMessage).getText();
+        expect(text).toEqual(exp.errorMessageRequired);
     });
 
     it('TC-063 Age field accepts spin down ', function () {
-        $(sel.age).setValue('5');
+        $(sel.age).setValue(age.spindown);
         $(sel.spinDownAge).click();
-        let age = $(sel.age).getValue();
-        expect(age).toEqual('4');
+        let ages = $(sel.age).getValue();
+        expect(ages).toEqual(exp.spinDown4);
 });
 
-    // it('TC-064 Age field doesn\'t accept 0 ', function () {
-    //     $(sel.age).setValue('0');
-    //     let errorMessage = $(sel.errorMessageAge).isDisplayed();
-    //     expect(errorMessage).toEqual(true);
-    // });
+    it('TC-064 Age field doesn\'t accept 0 ', function () {
+        $(sel.age).setValue(age.zeroInput);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed({timeout: 1000});
+        expect(errorMessage).toEqual(true);
+    });
 
     it('TC-065 Age field doesn\'t accept 13digits ', function () {
-        $(sel.age).setValue('5555555555555');
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+        $(sel.age).setValue(age.digits13);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
     });
 
     it('TC-066 Age field doesn\'t accept letters ', function () {
-        $(sel.age).setValue('qwe');
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+        $(sel.age).setValue(age.letters);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
     });
 
     it('TC-067 Age field doesn\'t accept symbols ', function () {
-        $(sel.age).setValue('@#$$%^&');
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+        $(sel.age).setValue(age.symbols);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
     });
 
-    it('TC-068 Age field doesn\'t accept negative digits ', function () {
-        $(sel.age).setValue('-45');
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+    it('TC-068a Age field doesn\'t accept negative digits ', function () {
+        $(sel.age).setValue(age.negative);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
+    });
+
+    it('TC-068b Age field doesn\'t accept negative digits-> "looks like unreal age" message ', function () {
+        $(sel.age).setValue(age.negative);
+        browser.pause(1000);
+        let errorMessage = $(sel.errorMessage).getText();
+        expect(errorMessage).toEqual(exp.errorMessageInvalid);
     });
 
     it('TC-069 Age field doesn\'t accept float digits ', function () {
-        $(sel.age).setValue('5.8');
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+        $(sel.age).setValue(age.float);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
     });
 
     it('TC-071 Age field doesn\'t accept spin down from 0 ', function () {
         $(sel.spinDownAge).click();
-        browser.pause(2000);
-        let error = $(sel.errorMessageAge).waitForDisplayed({ timeout: 1000 });
-        expect(error).toEqual(true);
+        let errorMessage = $(sel.errorMessage).waitForDisplayed();
+        expect(errorMessage).toEqual(true);
     });
 
+    it('TC-206 Not entered a value in the age field', function () {
+        $(sel.name).setValue(name.default);
+        $$(sel.radioButtons)[gender.she].click();
+        $(sel.story).click();
+        $$(sel.storyList)[storyTypes.comedy].click();
+        let submitBtn = $(sel.submit).isEnabled();
+        expect(submitBtn).toEqual(false);
+    });
 });

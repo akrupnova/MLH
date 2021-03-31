@@ -14,7 +14,11 @@ const elements = {
     "tryAgain": ".btn-primary",
     "spinUpAge": ".ant-input-number-handler-up",
     "spinDownAge": ".ant-input-number-handler-down",
-    "errorMessageAge" : ".ant-form-item-explain"
+   // "errorMessage" : ".ant-form-item-explain",
+    "errorMessage" : "div[role='alert']",
+    "radioBtnHe": "input[type='radio'][class='ant-radio-input'][value='he']",
+    "radioBtnShe": "input[type='radio'][class='ant-radio-input'][value='she']",
+    "radioBtnIt": "input[type='radio'][class='ant-radio-input'][value='it']",
 }
 
 module.exports = elements;
