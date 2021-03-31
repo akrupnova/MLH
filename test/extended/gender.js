@@ -13,98 +13,98 @@ describe('Gender field testing', function () {
 
     it('TC-042. Radio button "he" is selected after clicking on it', function () {
         $$(sel.radioButtons)[gender.he].click();
-        let colorHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
-        expect(colorHe).toEqual(true);
+        let buttonHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
+        expect(buttonHe).toEqual(true);
     });
 
     it('TC-043. Radio button "she" is selected after clicking on it', function () {
         $$(sel.radioButtons)[gender.she].click();
-        let colorShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
-        expect(colorShe).toEqual(true);
+        let buttonShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
+        expect(buttonShe).toEqual(true);
     });
 
     it('TC-044. Radio button "it" is selected after clicking on it', function () {
         $$(sel.radioButtons)[gender.it].click();
-        const colorIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
-        expect(colorIt).toEqual(true);
+        const buttonIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
+        expect(buttonIt).toEqual(true);
     });
 
     it('TC-045a. User can choose only one button ("he") at the time, "she" is not selected', function () {
         $$(sel.radioButtons)[gender.he].click();
-        const colorShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
-        expect(colorShe).toEqual(false);
+        const buttonShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
+        expect(buttonShe).toEqual(false);
     });
 
     it('TC-045b. User can choose only one button ("he") at the time, "it" is not selected', function () {
         $$(sel.radioButtons)[gender.he].click();
-        const colorIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
-        expect(colorIt).toEqual(false);
+        const buttonIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
+        expect(buttonIt).toEqual(false);
     });
 
     it('TC-046a. User can choose only one button ("she") at the time, "he" is not selected', function () {
         $$(sel.radioButtons)[gender.she].click();
-        const colorHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
-        expect(colorHe).toEqual(false);
+        const buttonHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
+        expect(buttonHe).toEqual(false);
     });
 
     it('TC-046b. User can choose only one button ("she") at the time, "it" is not selected', function () {
         $$(sel.radioButtons)[gender.she].click();
-        const colorIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
-        expect(colorIt).toEqual(false);
+        const buttonIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
+        expect(buttonIt).toEqual(false);
     });
 
     it('TC-047a. User can choose only one button ("it") at the time, "he" is not selected', function () {
         $$(sel.radioButtons)[gender.it].click();
-        const colorHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
-        expect(colorHe).toEqual(false);
+        const buttonHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
+        expect(buttonHe).toEqual(false);
     });
 
     it('TC-047b. User can choose only one button ("it") at the time, "she" is not selected', function () {
         $$(sel.radioButtons)[gender.it].click();
-        const colorShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
-        expect(colorShe).toEqual(false);
+        const buttonShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
+        expect(buttonShe).toEqual(false);
     });
 
     it('TC-048. User can change the choice by clicking on another button ( "it" -> "she")', function () {
         $$(sel.radioButtons)[gender.it].click();
         $$(sel.radioButtons)[gender.she].click();
-        const colorShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
-        expect(colorShe).toEqual(true);
+        const buttonShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
+        expect(buttonShe).toEqual(true);
     });
 
     it('TC-049. User can change the choice by clicking on another button ( "it" -> "he")', function () {
         $$(sel.radioButtons)[gender.it].click();
         $$(sel.radioButtons)[gender.he].click();
-        const colorHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
-        expect(colorHe).toEqual(true);
+        const buttonHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
+        expect(buttonHe).toEqual(true);
     });
 
     it('TC-050. User can change the choice by clicking on another button ( "he" -> "she")', function () {
         $$(sel.radioButtons)[gender.he].click();
         $$(sel.radioButtons)[gender.she].click();
-        const colorShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
-        expect(colorShe).toEqual(true);
+        const buttonShe = $('input[type="radio"][class="ant-radio-input"][value="she"]').isSelected();
+        expect(buttonShe).toEqual(true);
     });
 
     it('TC-051. User can change the choice by clicking on another button ( "he" -> "it")', function () {
         $$(sel.radioButtons)[gender.he].click();
         $$(sel.radioButtons)[gender.it].click();
-        const colorIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
-        expect(colorIt).toEqual(true);
+        const buttonIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
+        expect(buttonIt).toEqual(true);
     });
 
     it('TC-052. User can change the choice by clicking on another button ( "she" -> "it")', function () {
         $$(sel.radioButtons)[gender.she].click();
         $$(sel.radioButtons)[gender.it].click();
-        const colorIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
-        expect(colorIt).toEqual(true);
+        const buttonIt = $('input[type="radio"][class="ant-radio-input"][value="it"]').isSelected();
+        expect(buttonIt).toEqual(true);
     });
 
     it('TC-053. User can change the choice by clicking on another button ( "she" -> "he")', function () {
         $$(sel.radioButtons)[gender.she].click();
         $$(sel.radioButtons)[gender.he].click();
-        const colorHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
-        expect(colorHe).toEqual(true);
+        const buttonHe = $('input[type="radio"][class="ant-radio-input"][value="he"]').isSelected();
+        expect(buttonHe).toEqual(true);
     });
 
     it('TC-054. Not chosen any button in the gender field', function () {
