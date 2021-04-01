@@ -22,5 +22,7 @@
   "errorMessageName": "70 symbols max",
   "storyPlaceholder": "Type of the story",
   "storyType1": "Overcoming the Monster",
-  "imagePlaceholder": "Click or drag and drop"
+  "imagePlaceholder": "Click or drag and drop",
+  "wrongSizeImage": "Image must be smaller than 4MB!",
+  "wrongFormatImage": "You can only upload JPG/PNG file!"
 }

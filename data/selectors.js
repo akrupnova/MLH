@@ -22,7 +22,8 @@ const elements = {
     "radioBtnIt": "input[type='radio'][class='ant-radio-input'][value='it']",
     "storyListt": ".ant-select-item-option-content",
     "imageUpload": ".ant-upload input",
-    "imagePreview": "//a[@class='ant-upload-list-item-thumbnail']",
+ //   "imagePreview": "//a[@class='ant-upload-list-item-thumbnail']",
+    "imagePreview": ".ant-upload-list-item-thumbnail",
     "imageError": ".ant-message-notice",
 }
 

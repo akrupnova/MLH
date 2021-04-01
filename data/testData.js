@@ -59,7 +59,11 @@ const images = {
     "png2": "../data/photos/png2Mb.png",
     "png3.9": "../data/photos/png2Mb.png",
     "png4": "../data/photos/png2Mb.png",
-    "invalid": "../data/photos/sdlc.pdf"
+    "pdf": "../data/photos/pdf.pdf",
+    "bmp": "../data/photos/bmp.bmp",
+    "gif": "../data/photos/gif.gif",
+    "pptx": "../data/photos/pptx.pptx",
+    "svg": "../data/photos/svg.svg"
 }
 
 
