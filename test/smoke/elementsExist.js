@@ -1,6 +1,6 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
-import data from '../../data/testData';
+import {gender, labels} from '../../data/testData';
 
 describe('My Little Hero', function () {
 
@@ -29,7 +29,7 @@ describe('My Little Hero', function () {
         });
 
         it('TC-004 Name field label is present', function () {
-            let label = $$(sel.requiredLabel)[0].isDisplayed();
+            let label = $$(sel.requiredLabel)[labels.name].isDisplayed();
             expect(label).toEqual(true);
         });
 
@@ -39,27 +39,27 @@ describe('My Little Hero', function () {
         });
 
         it('TC-006 Gender field label is present', function () {
-            let label = $$(sel.requiredLabel)[1].isDisplayed();
+            let label = $$(sel.requiredLabel)[labels.gender].isDisplayed();
             expect(label).toEqual(true);
         });
 
         it('TC-007.a Gender radio button 1 is present', function () {
-            let buttonHe = $$(sel.radioButtons)[data.gender.he].isDisplayed();
+            let buttonHe = $$(sel.radioButtons)[gender.he].isDisplayed();
             expect(buttonHe).toEqual(true);
         });
 
         it('TC-007.b Gender radio button 2 is present', function () {
-            let buttonShe = $$(sel.radioButtons)[data.gender.she].isDisplayed();
+            let buttonShe = $$(sel.radioButtons)[gender.she].isDisplayed();
             expect(buttonShe).toEqual(true);
         });
 
         it('TC-007.c Gender radio button 3 is present', function () {
-            let buttonIt = $$(sel.radioButtons)[data.gender.it].isDisplayed();
+            let buttonIt = $$(sel.radioButtons)[gender.it].isDisplayed();
             expect(buttonIt).toEqual(true);
         });
 
         it('TC-008 Age field label is present', function () {
-            let label = $$(sel.requiredLabel)[2].isDisplayed();
+            let label = $$(sel.requiredLabel)[labels.age].isDisplayed();
             expect(label).toEqual(true);
         });
 
@@ -69,7 +69,7 @@ describe('My Little Hero', function () {
         });
 
         it('TC-010 Story field label is present', function () {
-            let label = $$(sel.requiredLabel)[3].isDisplayed();
+            let label = $$(sel.requiredLabel)[labels.story].isDisplayed();
             expect(label).toEqual(true);
         });
 
@@ -79,7 +79,7 @@ describe('My Little Hero', function () {
         });
 
         it('TC-012 Image field label is present', function () {
-            let label = $$(sel.imageLabel)[4].isDisplayed();
+            let label = $$(sel.imageLabel)[labels.image].isDisplayed();
             expect(label).toEqual(true);
         });
 

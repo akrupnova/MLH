@@ -1,6 +1,6 @@
 import sel from '../../data/selectors';
 import {name, gender, age, storyTypes} from '../../data/testData';
-import inputValues4 from '../../helpers/methods';
+import {inputValues4} from '../../helpers/methods';
 
 describe('Required fields and story created', function () {
 

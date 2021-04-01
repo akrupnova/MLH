@@ -52,5 +52,15 @@ const labels = {
     "image": 4
 }
 
+const images = {
+    "jpeg2": '../data/photos/jpeg2Mb.jpeg',
+    "jpeg3.9": "../data/photos/jpeg3.9Mb.jpeg",
+    "jpeg4": "../data/photos/jpeg4Mb.jpeg",
+    "png2": "../data/photos/png2Mb.png",
+    "png3.9": "../data/photos/png2Mb.png",
+    "png4": "../data/photos/png2Mb.png",
+    "invalid": "../data/photos/sdlc.pdf"
+}
 
-module.exports = {name, gender, age, storyTypes, labels};
+
+module.exports = {name, gender, age, storyTypes, labels, images};

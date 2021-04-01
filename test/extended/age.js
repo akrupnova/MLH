@@ -1,7 +1,7 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
 import {age, name, gender, storyTypes} from '../../data/testData';
-import {clearInput} from '../../helpers/methods';
+import {clearAge} from '../../helpers/methods';
 
 describe('Age field testing', function () {
 
@@ -64,7 +64,7 @@ describe('Age field testing', function () {
 
     it('TC-202a Message is appeared after entering ant then deleting input ', function () {
         $(sel.age).setValue(age.spindown);
-        clearInput();
+        clearAge();
         let message = $(sel.errorMessage).waitForDisplayed();
         expect(message).toEqual(true);
 
@@ -72,7 +72,7 @@ describe('Age field testing', function () {
 
     it('TC-202b Message which is appeared after entering ant then deleting input, has text "Required" ', function () {
         $(sel.age).setValue(age.spindown);
-        clearInput();
+        clearAge();
         browser.pause(1000)
         let text = $(sel.errorMessage).getText();
         expect(text).toEqual(exp.errorMessageRequired);

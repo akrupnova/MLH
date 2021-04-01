@@ -19,5 +19,8 @@
   "spinUp1": "1",
   "spinUp2": "2",
   "spinDown4": "4",
-  "errorMessageName": "70 symbols max"
+  "errorMessageName": "70 symbols max",
+  "storyPlaceholder": "Type of the story",
+  "storyType1": "Overcoming the Monster",
+  "imagePlaceholder": "Click or drag and drop"
 }
