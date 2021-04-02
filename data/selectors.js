@@ -15,16 +15,17 @@ const elements = {
     "tryAgain": ".btn-primary",
     "spinUpAge": ".ant-input-number-handler-up",
     "spinDownAge": ".ant-input-number-handler-down",
-   // "errorMessage" : ".ant-form-item-explain",
     "errorMessage" : "div[role='alert']",
     "radioBtnHe": "input[type='radio'][class='ant-radio-input'][value='he']",
     "radioBtnShe": "input[type='radio'][class='ant-radio-input'][value='she']",
     "radioBtnIt": "input[type='radio'][class='ant-radio-input'][value='it']",
     "storyListt": ".ant-select-item-option-content",
     "imageUpload": ".ant-upload input",
- //   "imagePreview": "//a[@class='ant-upload-list-item-thumbnail']",
     "imagePreview": ".ant-upload-list-item-thumbnail",
     "imageError": ".ant-message-notice",
+    "storyText": ".card-text",
+    "storyTitle": "h4",
+    "imageReady": "img"
 }
 
 module.exports = elements;

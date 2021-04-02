@@ -63,8 +63,14 @@ const images = {
     "bmp": "../data/photos/bmp.bmp",
     "gif": "../data/photos/gif.gif",
     "pptx": "../data/photos/pptx.pptx",
-    "svg": "../data/photos/svg.svg"
+    "svg": "../data/photos/svg.svg",
+    "square": "../data/photos/square.jpeg"
 }
 
+const story = {
+    "storyBody": 0,
+    "moral": 1
+}
 
-module.exports = {name, gender, age, storyTypes, labels, images};
+module.exports = {name, gender, age, storyTypes, labels, images, story};
+

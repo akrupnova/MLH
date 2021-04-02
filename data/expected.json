@@ -24,5 +24,20 @@
   "storyType1": "Overcoming the Monster",
   "imagePlaceholder": "Click or drag and drop",
   "wrongSizeImage": "Image must be smaller than 4MB!",
-  "wrongFormatImage": "You can only upload JPG/PNG file!"
+  "wrongFormatImage": "You can only upload JPG/PNG file!",
+  "name": "LadyBug007",
+  "age": "1234567890",
+  "storyTitle": "Two Cats And A LadyBug007",
+  "text": "After a feast, two cats see a piece of cake and start fighting for it.\nLadyBug007, who is 1234567890 years old, sees this as an opportunity for gain and offers to help them. Our hero divides the cake into two parts but shakes her head saying they are unequal. She takes a bite of one piece and then the other, but still finds them unequal.\nShe continues doing so until there is no more cake left. leaving the poor little cats disappointed.",
+  "year": "year",
+  "years": "years",
+  "he": "He",
+  "she": "She",
+  "it": "It",
+  "quantityPronoun": 2,
+  "moral": "Moral: When you quarrel amongst yourselves, someone else gains from it.",
+  "her": "her",
+  "his": "his",
+  "its": "its",
+  "maxSize": 200
 }
