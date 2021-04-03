@@ -1,7 +1,7 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
 import {name, gender, age, storyTypes} from '../../data/testData';
-import {clearName} from "../../helpers/methods";
+import {clearInput} from "../../helpers/methods";
 
 describe('Name field testing', function () {
 
@@ -68,14 +68,14 @@ describe('Name field testing', function () {
 
     it('TC-039a Message is appeared after entering ant then deleting input ', function () {
         $(sel.name).setValue(name.default);
-        clearName();
+        clearInput(sel.name);
         let message = $(sel.errorMessage).waitForDisplayed();
         expect(message).toEqual(true);
     });
 
     it('TC-039b Message which is appeared after entering ant then deleting input, has text "Required" ', function () {
         $(sel.name).setValue(name.default);
-        clearName();
+        clearInput(sel.name);
         browser.pause(1000)
         let text = $(sel.errorMessage).getText();
         expect(text).toEqual(exp.errorMessageRequired);

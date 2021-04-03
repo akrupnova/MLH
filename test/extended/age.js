@@ -1,7 +1,7 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
 import {age, name, gender, storyTypes} from '../../data/testData';
-import {clearAge} from '../../helpers/methods';
+import {clearInput} from '../../helpers/methods';
 
 describe('Age field testing', function () {
 
@@ -64,7 +64,7 @@ describe('Age field testing', function () {
 
     it('TC-202a Message is appeared after entering ant then deleting input ', function () {
         $(sel.age).setValue(age.spindown);
-        clearAge();
+        clearInput(sel.age);
         let message = $(sel.errorMessage).waitForDisplayed();
         expect(message).toEqual(true);
 
@@ -72,7 +72,7 @@ describe('Age field testing', function () {
 
     it('TC-202b Message which is appeared after entering ant then deleting input, has text "Required" ', function () {
         $(sel.age).setValue(age.spindown);
-        clearAge();
+        clearInput(sel.age);
         browser.pause(1000)
         let text = $(sel.errorMessage).getText();
         expect(text).toEqual(exp.errorMessageRequired);
@@ -85,7 +85,7 @@ describe('Age field testing', function () {
         expect(ages).toEqual(exp.spinDown4);
 });
 
-    it('TC-064 Age field doesn\'t accept 0 ', function () {
+    it('TC-064 (BUG) Age field doesn\'t accept 0 ', function () {
         $(sel.age).setValue(age.zeroInput);
         let errorMessage = $(sel.errorMessage).waitForDisplayed({timeout: 1000});
         expect(errorMessage).toEqual(true);

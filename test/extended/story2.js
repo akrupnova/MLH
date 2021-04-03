@@ -14,19 +14,13 @@ describe('Story testing - image resolution', function () {
     });
 
     it('TC-200a  The maximum size of square image is 200x200px -width" ', function () {
-        // inputValues4(name.default, gender.she, age.default, storyTypes.comedy);
-        // uploadingImage(images.square);
         inputValues5(name.default, gender.she, age.default, storyTypes.comedy, images.square);
-     //   $(sel.submit).click();
         let width = $(sel.imageReady).getSize('width');
         let resWidth = width <= exp.maxSize;
         expect(resWidth).toEqual(true);
     });
 
     it('TC-200b  The maximum size of square image is 200x200px -height" ', function () {
-        // inputValues4(name.default, gender.she, age.default, storyTypes.comedy);
-        // uploadingImage(images.square);
-        // $(sel.submit).click();
         inputValues5(name.default, gender.she, age.default, storyTypes.comedy, images.square);
         let height = $(sel.imageReady).getSize('height');
         let resHeight = height <= exp.maxSize;

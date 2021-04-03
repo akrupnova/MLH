@@ -10,11 +10,7 @@ function inputValues4(name, gender, age, story){
 }
 
 function inputValues4Submit(name, gender, age, story){
-    $(sel.name).setValue(name);
-    $$(sel.radioButtons)[gender].click();
-    $(sel.age).setValue(age);
-    $(sel.story).click();
-    $$(sel.storyList)[story].click();
+    inputValues4(name, gender, age, story);
     $(sel.submit).click();
 }
 
@@ -29,29 +25,25 @@ function uploadingImage(image) {
    // $(sel.imagePreview).waitForDisplayed();
 }
 
-function inputValues5 (name, gender, age, story, image){
-    $(sel.name).setValue(name);
-    $$(sel.radioButtons)[gender].click();
-    $(sel.age).setValue(age);
-    $(sel.story).click();
-    $$(sel.storyList)[story].click();
+function inputValues5(name, gender, age, story, image){
+    inputValues4(name, gender, age, story);
     uploadingImage(image);
     $(sel.submit).click();
 }
 
-function clearAge() {
-    let el = $(sel.age).getValue();
+function clearInput(input) {
+    let el = $(input).getValue();
     for (let i = 0; i < el.length; i++)
-        $(sel.age).keys(['Backspace']);
+        $(input).keys(['Backspace']);
 }
 
-function clearName() {
-    let el = $(sel.name).getValue();
-    for (let i = 0; i < el.length; i++)
-        $(sel.name).keys(['Backspace']);
+function storyTitle(type){
+    $(sel.story).click();
+    let label = $$(sel.storyType)[type].getAttribute('title');
+    return label;
 }
 
-module.exports = {inputValues4, clearAge, clearName, uploadingImage, inputValues5, inputValues4Submit};
+module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle};
 
 
 //function uploadingImage() {
