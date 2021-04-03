@@ -24,7 +24,7 @@ describe('Story field testing', function () {
     describe('Story labels testing', function () {
 
         it('TC-073 The expanded list appears in the dropdown ', function () {
-             $(sel.story).click();
+            $(sel.story).click();
             const list = $(sel.storyDropdown).isDisplayed();
             expect(list).toEqual(true);
          });

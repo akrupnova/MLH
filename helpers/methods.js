@@ -1,4 +1,5 @@
 import sel from '../data/selectors';
+import {storyTypes} from "../data/testData";
 const path = require('path');
 
 function inputValues4(name, gender, age, story){
@@ -34,16 +35,27 @@ function inputValues5(name, gender, age, story, image){
 function clearInput(input) {
     let el = $(input).getValue();
     for (let i = 0; i < el.length; i++)
-        $(input).keys(['Backspace']);
+     $(input).keys(['Backspace']);
 }
 
 function storyTitle(type){
     $(sel.story).click();
-    let label = $$(sel.storyType)[type].getAttribute('title');
-    return label;
+    return $$(sel.storyType)[type].getAttribute('title');
 }
 
-module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle};
+function fillingStoryType(type){
+    $(sel.story).click();
+    $$(sel.storyList)[type].click();
+    return $(sel.story).getText();
+}
+
+function collapsingDropdown(type){
+$(sel.story).click();
+$$(sel.storyList)[type].click();
+return $(sel.storyDropdown).isDisplayed();
+}
+
+module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType};
 
 
 //function uploadingImage() {

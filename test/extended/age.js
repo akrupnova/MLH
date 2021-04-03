@@ -63,7 +63,7 @@ describe('Age field testing', function () {
     });
 
     it('TC-202a Message is appeared after entering ant then deleting input ', function () {
-        $(sel.age).setValue(age.spindown);
+        $(sel.age).setValue(age.spinDown);
         clearInput(sel.age);
         let message = $(sel.errorMessage).waitForDisplayed();
         expect(message).toEqual(true);
@@ -71,7 +71,7 @@ describe('Age field testing', function () {
     });
 
     it('TC-202b Message which is appeared after entering ant then deleting input, has text "Required" ', function () {
-        $(sel.age).setValue(age.spindown);
+        $(sel.age).setValue(age.spinDown);
         clearInput(sel.age);
         browser.pause(1000)
         let text = $(sel.errorMessage).getText();
@@ -79,7 +79,7 @@ describe('Age field testing', function () {
     });
 
     it('TC-063 Age field accepts spin down ', function () {
-        $(sel.age).setValue(age.spindown);
+        $(sel.age).setValue(age.spinDown);
         $(sel.spinDownAge).click();
         let ages = $(sel.age).getValue();
         expect(ages).toEqual(exp.spinDown4);
