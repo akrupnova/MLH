@@ -16,7 +16,7 @@ function inputValues4Submit(name, gender, age, story){
     $(sel.submit).click();
 }
 
-function uploadingImage(image) {
+function uploadingImage(image, element) {
     const inputDiv = $(sel.imageUpload);
     const filePath = path.join(__dirname, image);
       browser.execute(function () {
@@ -24,6 +24,9 @@ function uploadingImage(image) {
     });
     inputDiv.waitForDisplayed();
     inputDiv.setValue(filePath);
+
+    $(sel.imagePreview).waitForDisplayed();
+    return $(element).isDisplayed();
 }
 
 function inputValues5(name, gender, age, story, image){
