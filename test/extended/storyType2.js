@@ -13,7 +13,7 @@ describe('Story field testing', function () {
         browser.refresh();
     });
 
-    describe('Types of story', function () {
+    describe('Choosing only one story type', function () {
 
         it('TC-082 Chosen "Overcoming the Monster"  type fills the field ', function () {
             let type = fillingStoryType(storyTypes.overcomingTheMonster);
@@ -84,6 +84,9 @@ describe('Story field testing', function () {
             let dropDownMenu = collapsingDropdown(storyTypes.comedy);
             expect(dropDownMenu).toEqual(false);
         });
+    });
+
+    describe('Choosing only one story type', function () {
 
         it('TC-096 Change the type of the story from "Comedy" to "Tragedy" ', function () {
             fillingStoryType(storyTypes.comedy);
@@ -125,14 +128,6 @@ describe('Story field testing', function () {
             fillingStoryType(storyTypes.overcomingTheMonster);
             let type = fillingStoryType(storyTypes.comedy);
             expect(type).toEqual(exp.storyType7);
-        });
-
-        it('TC-104 Story Type field is required ', function () {
-            $(sel.name).setValue(name.default);
-            $$(sel.radioButtons)[gender.she].click();
-            $(sel.age).setValue(age.default);
-            let submitBtn = $(sel.submit).isEnabled();
-            expect(submitBtn).toEqual(false);
         });
     });
 });

@@ -31,7 +31,8 @@ const age = {
     "symbols":" ~!@#$%^&*()_+{}][\\|?>,< ",
     "negative":"-23",
     "float": "23.3453",
-    "spinDown": "5"
+    "spinDown": "5",
+    "empty": ""
 }
 
 const storyTypes = {

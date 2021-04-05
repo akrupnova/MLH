@@ -1,6 +1,6 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
-import {storyTypes} from '../../data/testData';
+import {age, gender, name, storyTypes} from '../../data/testData';
 import {storyTitle} from "../../helpers/methods";
 
 describe('Story field testing', function () {
@@ -62,6 +62,17 @@ describe('Story field testing', function () {
         it('TC-081 Label "Comedy" is correct', function () {
             let label = storyTitle(storyTypes.comedy);
             expect(label).toEqual(exp.storyType7);
+        });
+    });
+
+    describe('Negative test', function () {
+
+        it('TC-104 Story Type field is required ', function () {
+            $(sel.name).setValue(name.default);
+            $$(sel.radioButtons)[gender.she].click();
+            $(sel.age).setValue(age.default);
+            let submitBtn = $(sel.submit).isEnabled();
+            expect(submitBtn).toEqual(false);
         });
     });
 });

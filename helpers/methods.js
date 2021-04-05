@@ -1,5 +1,5 @@
 import sel from '../data/selectors';
-import {story, caseType} from "../data/testData";
+import {story, caseType, name} from "../data/testData";
 import exp from "../data/expected.json";
 const path = require('path');
 
@@ -44,6 +44,7 @@ function clearInput(input) {
     let el = $(input).getValue();
     for (let i = 0; i < el.length; i++)
      $(input).keys(['Backspace']);
+    return $(sel.errorMessage).waitForDisplayed();
 }
 
 function storyTitle(type){
@@ -58,9 +59,9 @@ function fillingStoryType(type){
 }
 
 function collapsingDropdown(type){
-$(sel.story).click();
-$$(sel.storyList)[type].click();
-return $(sel.storyDropdown).isDisplayed();
+    $(sel.story).click();
+    $$(sel.storyList)[type].click();
+    return $(sel.storyDropdown).isDisplayed();
 }
 
 function refreshChecking(){
@@ -88,7 +89,12 @@ function textReformat(element){
     return result;
 }
 
-module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat};
+function nameAccepting(name){
+    $(sel.name).setValue(name);
+    return $(sel.errorMessage).isDisplayed();
+}
+
+module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat, nameAccepting};
 
 
 //function uploadingImage() {
