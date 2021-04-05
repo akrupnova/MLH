@@ -1,4 +1,6 @@
 import sel from '../data/selectors';
+import {story} from "../data/testData";
+import exp from "../data/expected.json";
 const path = require('path');
 
 function inputValues4(name, gender, age, story){
@@ -64,7 +66,21 @@ function refreshChecking(){
     return result;
 }
 
-module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking};
+function textReformat(element){
+    let result;
+    let text = $$(sel.storyText)[story.storyBody].getText();
+    text = text.replace(/[,\r\n]+/g," ");
+    text = text.split(' ');
+    if (element === exp.she){
+        let match = text.includes(element);
+        let quantity = text.filter(el => el === exp.she).length;
+        return [match, quantity];
+    }
+    else result = text.includes(element);
+    return result;
+}
+
+module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat};
 
 
 //function uploadingImage() {
