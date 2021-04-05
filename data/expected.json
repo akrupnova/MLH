@@ -45,5 +45,6 @@
   "her": "her",
   "his": "his",
   "its": "its",
-  "maxSize": 200
+  "maxSize": 200,
+  "tryAgain": "Try again!"
 }

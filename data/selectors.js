@@ -5,12 +5,13 @@ const elements = {
     "name": "#name",
     "radioButtons": ".ant-radio",
     "age": "#age",
-    "story": ".ant-select-selector",      //    storyType
+    "story": ".ant-select-selector",
     "storyPlaceholder" : ".ant-select-selection-placeholder",
     "imageLabel": ".ant-form-item-label",
     "image": "span.ant-upload",
     "submit": ".ant-btn",
     "radioButtonsLabel": ".ant-radio-wrapper",
+    "gender": "#gender",
     "storyList": ".ant-select-item",
     "storyDropdown": ".ant-select-open",
     "storyType": ".ant-select-item-option",
@@ -26,7 +27,8 @@ const elements = {
     "imageError": ".ant-message-notice",
     "storyText": ".card-text",
     "storyTitle": "h4",
-    "imageReady": "img"
+    "imageReady": "img",
+    "homePage": ".hero__form"
 }
 
 module.exports = elements;

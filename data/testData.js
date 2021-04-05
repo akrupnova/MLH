@@ -72,5 +72,9 @@ const story = {
     "moral": 1
 }
 
-module.exports = {name, gender, age, storyTypes, labels, images, story};
+const code = {
+    "refresh": "F5"
+}
+
+module.exports = {name, gender, age, storyTypes, labels, images, story, code};
 

@@ -1,5 +1,4 @@
 import sel from '../data/selectors';
-import {storyTypes} from "../data/testData";
 const path = require('path');
 
 function inputValues4(name, gender, age, story){
@@ -23,7 +22,6 @@ function uploadingImage(image) {
     });
     inputDiv.waitForDisplayed();
     inputDiv.setValue(filePath);
-   // $(sel.imagePreview).waitForDisplayed();
 }
 
 function inputValues5(name, gender, age, story, image){
@@ -55,7 +53,18 @@ $$(sel.storyList)[type].click();
 return $(sel.storyDropdown).isDisplayed();
 }
 
-module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType};
+function refreshChecking(){
+    let names = $(sel.name).getText();
+    let ages = $(sel.age).getText();
+    let genders= $(sel.gender).isSelected();
+    let storyType = $(sel.story).isSelected();
+    let result;
+    if(names === '' && ages === '' && storyType === false && genders === false)
+        result = true;
+    return result;
+}
+
+module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking};
 
 
 //function uploadingImage() {
