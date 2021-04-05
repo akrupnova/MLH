@@ -1,5 +1,5 @@
 import sel from '../data/selectors';
-import {story, caseType, name} from "../data/testData";
+import {story, caseType, name, gender} from "../data/testData";
 import exp from "../data/expected.json";
 const path = require('path');
 
@@ -94,7 +94,12 @@ function nameAccepting(name){
     return $(sel.errorMessage).isDisplayed();
 }
 
-module.exports = {inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat, nameAccepting};
+function genderRun(gender, button){
+    $$(sel.radioButtons)[gender].click();
+    return  $(button).isSelected();
+}
+
+module.exports = {genderRun, inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat, nameAccepting};
 
 
 //function uploadingImage() {
