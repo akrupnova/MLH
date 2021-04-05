@@ -81,5 +81,10 @@ const index = {
     "quantity": 1
 }
 
-module.exports = {name, gender, age, storyTypes, labels, images, story, code, index};
+const caseType = {
+    "positive": "positive",
+    "negative": "negative"
+}
+
+module.exports = {name, gender, age, storyTypes, labels, images, story, code, index, caseType};
 

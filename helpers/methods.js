@@ -1,5 +1,5 @@
 import sel from '../data/selectors';
-import {story} from "../data/testData";
+import {story, caseType} from "../data/testData";
 import exp from "../data/expected.json";
 const path = require('path');
 
@@ -16,7 +16,7 @@ function inputValues4Submit(name, gender, age, story){
     $(sel.submit).click();
 }
 
-function uploadingImage(image, element) {
+function uploadingImage(image, element, type) {
     const inputDiv = $(sel.imageUpload);
     const filePath = path.join(__dirname, image);
       browser.execute(function () {
@@ -24,9 +24,14 @@ function uploadingImage(image, element) {
     });
     inputDiv.waitForDisplayed();
     inputDiv.setValue(filePath);
-
-    $(sel.imagePreview).waitForDisplayed();
-    return $(element).isDisplayed();
+    if(type === caseType.positive) {
+        $(sel.imagePreview).waitForDisplayed();
+        return $(element).isDisplayed();
+    }
+    else {
+        $(sel.imageError).waitForDisplayed();
+        return $(element).isDisplayed();
+    }
 }
 
 function inputValues5(name, gender, age, story, image){
