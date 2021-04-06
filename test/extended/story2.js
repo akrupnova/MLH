@@ -29,7 +29,7 @@ describe('Story testing', function () {
             expect(resHeight).toEqual(true);
         });
 
-        it('TC-201 (BUG) Height of vertical image is up to 200 px ', function () {
+        it.skip('TC-201 (BUG) Height of vertical image is up to 200 px ', function () {
             inputValues5(name.default, gender.she, age.default, storyTypes.comedy, images.jpeg2);
             let height = $(sel.imageReady).getSize('height');
             let resHeight = height <= exp.maxSize;

@@ -129,5 +129,12 @@ describe('Story field testing', function () {
             let type = fillingStoryType(storyTypes.comedy);
             expect(type).toEqual(exp.storyType7);
         });
+
+        it('TC - 103 Story Type label is highlighted when cursor hovers on it ', function () {
+            $(sel.story).click();
+            $(sel.storyList).keys(['ArrowDown']);
+            let rebirth = $(sel.rebirth).isFocused();
+            expect(rebirth).toEqual(true);
+        });
     });
 });

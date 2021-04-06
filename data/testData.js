@@ -88,4 +88,3 @@ const caseType = {
 }
 
 module.exports = {name, gender, age, storyTypes, labels, images, story, code, index, caseType};
-

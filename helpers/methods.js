@@ -9,12 +9,12 @@ function inputValues4(name, gender, age, story){
     $(sel.age).setValue(age);
     $(sel.story).click();
     $$(sel.storyList)[story].click();
-}
+};
 
 function inputValues4Submit(name, gender, age, story){
     inputValues4(name, gender, age, story);
     $(sel.submit).click();
-}
+};
 
 function uploadingImage(image, element, type) {
     const inputDiv = $(sel.imageUpload);
@@ -32,37 +32,37 @@ function uploadingImage(image, element, type) {
         $(sel.imageError).waitForDisplayed();
         return $(element).isDisplayed();
     }
-}
+};
 
 function inputValues5(name, gender, age, story, image){
     inputValues4(name, gender, age, story);
     uploadingImage(image);
     $(sel.submit).click();
-}
+};
 
 function clearInput(input) {
     let el = $(input).getValue();
     for (let i = 0; i < el.length; i++)
      $(input).keys(['Backspace']);
     return $(sel.errorMessage).waitForDisplayed();
-}
+};
 
 function storyTitle(type){
     $(sel.story).click();
     return $$(sel.storyType)[type].getAttribute('title');
-}
+};
 
 function fillingStoryType(type){
     $(sel.story).click();
     $$(sel.storyList)[type].click();
     return $(sel.story).getText();
-}
+};
 
 function collapsingDropdown(type){
     $(sel.story).click();
     $$(sel.storyList)[type].click();
     return $(sel.storyDropdown).isDisplayed();
-}
+};
 
 function refreshChecking(){
     let names = $(sel.name).getText();
@@ -73,7 +73,7 @@ function refreshChecking(){
     if(names === '' && ages === '' && storyType === false && genders === false)
         result = true;
     return result;
-}
+};
 
 function textReformat(element){
     let result;
@@ -87,17 +87,17 @@ function textReformat(element){
     }
     else result = text.includes(element);
     return result;
-}
+};
 
 function nameAccepting(name){
     $(sel.name).setValue(name);
     return $(sel.errorMessage).isDisplayed();
-}
+};
 
 function genderRun(gender, button){
     $$(sel.radioButtons)[gender].click();
     return  $(button).isSelected();
-}
+};
 
 module.exports = {genderRun, inputValues4, clearInput, uploadingImage, inputValues5, inputValues4Submit, storyTitle, collapsingDropdown, fillingStoryType, refreshChecking, textReformat, nameAccepting};
 

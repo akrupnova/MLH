@@ -28,7 +28,8 @@ const elements = {
     "storyText": ".card-text",
     "storyTitle": "h4",
     "imageReady": "img",
-    "homePage": ".hero__form"
+    "homePage": ".hero__form",
+    "rebirth": "[aria-activedescendant~=\"story_list_1\"]"
 }
 
 module.exports = elements;
