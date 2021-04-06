@@ -28,7 +28,7 @@ function uploadingImage(image, element, type) {
         $(sel.imagePreview).waitForDisplayed();
         return $(element).isDisplayed();
     }
-    else {
+    if(type === caseType.negative){
         $(sel.imageError).waitForDisplayed();
         return $(element).isDisplayed();
     }
