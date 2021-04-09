@@ -21,5 +21,4 @@ describe('Required fields and story created', function () {
         let tryAgainBtn = $(sel.tryAgain).isDisplayed();
         expect(tryAgainBtn).toEqual(true);
     });
-
 });

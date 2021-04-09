@@ -1,6 +1,6 @@
 import sel from '../../data/selectors';
 import exp from '../../data/expected.json';
-import {name, gender, age, storyTypes} from '../../data/testData';
+import {storyTypes} from '../../data/testData';
 import {collapsingDropdown, fillingStoryType} from "../../helpers/methods";
 
 describe('Story field testing', function () {

@@ -23,17 +23,17 @@ describe('Name field testing', function () {
 
     describe('Positive testing', function () {
 
-        it('TC-029 Name Field accepts 1 symbol" ', function () {
+        it('TC-029 Name Field accepts 1 symbol ', function () {
             const names = nameAccepting(name.oneSymbol);
             expect(names).toEqual(false);
         });
 
-        it('TC-030 Name Field accepts 70 symbols" ', function () {
+        it('TC-030 Name Field accepts 70 symbols ', function () {
             const names = nameAccepting(name.symbols70);
             expect(names).toEqual(false);
         });
 
-        it('TC-031 Name Field accepts letters" ', function () {
+        it('TC-031 Name Field accepts letters ', function () {
             const names = nameAccepting(name.letters);
             expect(names).toEqual(false);
         });
@@ -48,17 +48,28 @@ describe('Name field testing', function () {
             expect(names).toEqual(false);
         });
 
-        it('TC-034 Name Field accepts special symbols" ', function () {
+        it('TC- 037 Name field accepts copy/pasting a text', function () {
+            $(sel.name).click();
+            $(sel.name).setValue(name.copyPast);
+            $(sel.name).keys(['Control','a']);
+            $(sel.name).keys(['Control','c']);
+            clearInput(sel.name);
+            $(sel.name).keys(['Control','v']);
+            let names = $(sel.name).getValue();
+            expect(names).toEqual(exp.copyPast);
+        });
+
+        it('TC-034 Name Field accepts special symbols ', function () {
             const names = nameAccepting(name.specSymbol);
             expect(names).toEqual(false);
         });
 
-        it('TC-035 Name Field accepts letters with space" ', function () {
+        it('TC-035 Name Field accepts letters with space ', function () {
             const names = nameAccepting(name.lettersSpace);
             expect(names).toEqual(false);
         });
 
-        it('TC-036 Name Field accepts russian letters" ', function () {
+        it('TC-036 Name Field accepts russian letters ', function () {
             const names = nameAccepting(name.rusLetters);
             expect(names).toEqual(false);
         });
@@ -79,7 +90,7 @@ describe('Name field testing', function () {
             expect(text).toEqual(exp.errorMessageRequired);
         });
 
-        it('TC-040a Name Field doesn\'t accept  71 symbols" ', function () {
+        it('TC-040a Name Field doesn\'t accept  71 symbols ', function () {
             $(sel.name).setValue(name.symbol71);
             const names = $(sel.errorMessage).waitForDisplayed();
             expect(names).toEqual(true);
