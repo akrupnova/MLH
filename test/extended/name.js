@@ -48,13 +48,14 @@ describe('Name field testing', function () {
             expect(names).toEqual(false);
         });
 
-        it('TC- 037 Name field accepts copy/pasting a text', function () {
+        it.only('TC- 037 Name field accepts copy/pasting a text', function () {
             $(sel.name).click();
             $(sel.name).setValue(name.copyPast);
             $(sel.name).keys(['Control','a']);
             $(sel.name).keys(['Control','c']);
             clearInput(sel.name);
             $(sel.name).keys(['Control','v']);
+            browser.pause(4000);
             let names = $(sel.name).getValue();
             expect(names).toEqual(exp.copyPast);
         });
